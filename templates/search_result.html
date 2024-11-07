@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Result</title>
+    <style>
+        /* Global styling */
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #84fab0, #8fd3f4);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            color: #333;
+        }
+
+        /* Container styling */
+        .container {
+            background-color: #fff;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            max-width: 850px;
+            width: 95%;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+
+        .container:hover {
+            transform: scale(1.02);
+        }
+
+        /* Header */
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        /* Message styling */
+        p {
+            font-size: 18px;
+            color: #d9534f;
+            text-align: center;
+        }
+
+        /* Table styling */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        table, th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+        }
+
+        th {
+            background: linear-gradient(45deg, #6a1b9a, #ab47bc);
+            color: #fff;
+            text-align: left;
+            font-size: 16px;
+        }
+
+        td {
+            background-color: #f9f9f9;
+        }
+
+        /* Hover effect on table rows */
+        tr:hover td {
+            background-color: #f1f1f1;
+        }
+
+        /* Back button styling */
+        .back-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: linear-gradient(45deg, #42a5f5, #478ed1);
+            color: white;
+            text-decoration: none;
+            border-radius: 8px;
+            text-align: center;
+            transition: background 0.3s;
+        }
+
+        .back-link:hover {
+            background: linear-gradient(45deg, #478ed1, #42a5f5);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Search Result</h1>
+        
+        {% if message %}
+            <p>{{ message }}</p>
+        {% else %}
+            <h2>CVE Details</h2>
+            <div>{{ cve_data | safe }}</div>
+        {% endif %}
+        
+        <br>
+        <a href="/" class="back-link">Back to Search</a>
+    </div>
+</body>
+</html>
